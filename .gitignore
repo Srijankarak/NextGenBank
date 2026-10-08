@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment variables / Secrets (CRITICAL)
+.env
+.env.local
+*.env
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Unit test / coverage reports
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor / IDE files
+.vscode/
+.idea/
+
+# Database files
+*.sqlite3
+*.db
