@@ -31,3 +31,4 @@ htmlcov/
 # Database files
 *.sqlite3
 *.db
+*.md
