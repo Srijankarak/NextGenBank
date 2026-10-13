@@ -28,6 +28,10 @@ htmlcov/
 .vscode/
 .idea/
 
+# Environment configs
+.envs/*
+!.envs/.env.example
+
 # Database files
 *.sqlite3
 *.db
