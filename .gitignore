@@ -1,0 +1,21 @@
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment Variables & Secrets
+.envs/*
+!.envs/.env.example
+
+# Application Logs
+backend/app/logs/
+*.log
+
+# Operating System files
+.DS_Store
+Thumbs.db
