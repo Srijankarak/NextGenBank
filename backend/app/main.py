@@ -3,6 +3,7 @@ from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
 
 from backend.app.core.config import settings
+from backend.app.core.db import engine, init_db
 from backend.app.core.logging import get_logger
 
 logger = get_logger()
@@ -14,9 +15,17 @@ async def lifespan(app: FastAPI):
     Application Lifespan Manager:
     Runs startup logic before yielding, and cleanup logic on shutdown.
     """
-    logger.info(f"Starting {settings.PROJECT_NAME} in [{settings.ENVIRONMENT}] mode...")
-    yield
-    logger.info(f"Shutting down {settings.PROJECT_NAME} cleanly...")
+    try:
+        logger.info(f"Starting {settings.PROJECT_NAME} in [{settings.ENVIRONMENT}] mode...")
+        await init_db()
+        yield
+    except Exception as e:
+        logger.error(f"Application startup failed: {e}")
+        await engine.dispose()
+        raise
+    finally:
+        logger.info(f"Shutting down {settings.PROJECT_NAME} cleanly...")
+        await engine.dispose()
 
 
 # Initialize the FastAPI App with settings from config.py

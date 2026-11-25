@@ -22,6 +22,9 @@ class Settings(BaseSettings):
     PROJECT_DESCRIPTION: str = "A high-performance Neo-Banking and Financial Ledger API"
     SITE_NAME: str = "NextGenBank"
 
+    # Database Settings
+    DATABASE_URL: str = ""
+
 
 # Singleton instance used across the entire backend
 settings = Settings()
